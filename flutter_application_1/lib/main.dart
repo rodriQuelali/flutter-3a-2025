@@ -15,3 +15,17 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/**
+ * 1. Explicacion de la funcion  
+ * @override
+ * Widget build
+ * 
+ * que es BuildContext context y en que situacion se maneja?
+ * 
+ * 
+ * 2. ciclo de vida en flutter?
+ *  - demostrar en una aplicacion echa en flutter.
+ * 
+ * Ojo: la presentacion se realiza ele dia lunes a primera hora
+ */
