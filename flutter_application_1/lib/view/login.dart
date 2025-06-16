@@ -1,7 +1,14 @@
+import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
+
 import 'package:flutter/material.dart';
 
-class LoginPages extends StatelessWidget{
+class LoginPages extends StatefulWidget{
   
+  @override
+  State<LoginPages> createState() => _LoginPagesState();
+}
+
+class _LoginPagesState extends State<LoginPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,78 +16,33 @@ class LoginPages extends StatelessWidget{
         title: Text("Login 3ro A", style: TextStyle(color: Color.fromRGBO(4, 42, 109, 1)),),
         backgroundColor: Color.fromRGBO(248, 160, 160, 1),
       ),
-      body: Center(
-        child: titulo(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Accion del boton
-          print("Boton presionado");
-        },
-        child: Icon(Icons.ad_units),
-        backgroundColor: Color.fromRGBO(248, 160, 160, 1),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        color: Color.fromRGBO(248, 160, 160, 1),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Container(
+        child: Column(
           children: [
-            IconButton(
-              icon: Icon(Icons.home, color: Color.fromRGBO(4, 42, 109, 1)),
-              onPressed: () {
-                // Accion del boton de inicio
-                print("Inicio presionado");
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.settings, color: Color.fromRGBO(4, 42, 109, 1)),
-              onPressed: () {
-                // Accion del boton de configuracion
-                print("Configuracion presionado");
-              },
-            ),
+            titulo(),
+            SizedBox(height: 20,),
+            campoTexto("Usuario", Icons.person),
+            SizedBox(height: 5,),
+            campoTexto("Email", Icons.email),
           ],
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(248, 160, 160, 1),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Color.fromRGBO(4, 42, 109, 1),
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle, color: Color.fromRGBO(4, 42, 109, 1)),
-              title: Text('Perfil'),
-              onTap: () {
-                // Accion del menu de perfil
-                print("Perfil seleccionado");
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.logout, color: Color.fromRGBO(4, 42, 109, 1)),
-              title: Text('Cerrar Sesion'),
-              onTap: () {
-                // Accion del menu de cerrar sesion
-                print("Cerrar Sesion seleccionado");
-              },
-            ),
-          ],
-        ),
-      ),  
     );
   }
 
+  
+
+  Widget campoTexto(String texto, IconData icono){
+    return TextField(
+      decoration: InputDecoration(
+        labelText: texto,
+        icon: Icon(icono),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10)
+        )
+      ),
+    );
+  }
 
   Widget titulo(){
     return Text(
