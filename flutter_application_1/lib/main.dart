@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/view/login.dart';
 
 void main(){
   runApp(new MyApp());
@@ -7,11 +8,10 @@ void main(){
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text("Hola 3ro A"),
+      home: LoginPages()
     );
   }
 }
