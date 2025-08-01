@@ -18,23 +18,14 @@ class _CalculadoraPagesState extends State<CalculadoraPages> {
 
   // Método para realizar la operación
   void calcular(String operacion) {
-    double? num1 = double.tryParse(num1Controller.text);
-    double? num2 = double.tryParse(num2Controller.text);
-
-    if (num1 == null || num2 == null) {
-      // setState para actualizar el estado de la UI
-      setState(() {
-        resultado = "Ingresa números válidos";
-      });
-      return;
-    }
+    
 
     String res = "0";
 
     switch (operacion) {
       case '+':
         //Calculadora cal = Calculadora(num1.toString(), num2.toString());
-        res = Calculadora(num1.toString(), num2.toString()).sumar();
+        res = Calculadora(num1Controller.text.toString(), num1Controller.text.toString()).sumar();
         break;
       case '-':
         //res = Calculadora(num1.toString(), num2.toString()).restar();
@@ -43,7 +34,7 @@ class _CalculadoraPagesState extends State<CalculadoraPages> {
         //res = Calculadora(num1.toString(), num2.toString()).multiplicar();
         break;
       case '/':
-        if (num2 == 0) {
+        if (num2Controller.text.toString() == "0") {
           setState(() {
             resultado = "División por cero no permitida";
           });

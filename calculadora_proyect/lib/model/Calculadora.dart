@@ -7,27 +7,16 @@ class Calculadora {
 
   //metodos
   String sumar() {
-    /*double? num1 = double.tryParse(_num1);
-    double? num2 = double.tryParse(_num2);
-    double res;
-    res = num1! + num2!;
-    return res;*/
     String sacarP = ".0";
-    if (_num1.indexOf(sacarP) == -1 || _num1.indexOf('.0') != -1) {
-      print("dataaaaaaaaaaaaaaaaaaaaaa${_num1.toString()}");
-       int? num1 = _num1.contains('.') ? int.tryParse(_num1.split('.')[0]) : int.tryParse(_num1);
-       int? num2 = _num2.contains('.') ? int.tryParse(_num2.split('.')[0]) : int.tryParse(_num2);
-       int res = 0;
-       print("dataaaaaaaaaaaaaaaaaaaaaa${num2.toString()}");
-        res = num1! + num2!;
-        print("dataaaaaaaaaaaaaaaaaaaaaa${res.toString()}");
-        return res.toString();
+    if(validaDatosEntrada(_num1, _num2) !=""){
+      return validaDatosEntrada(_num1, _num2);
     }
+    //tareas una funcion de parceo solo uno...
     double? num1 = double.tryParse(_num1);
     double? num2 = double.tryParse(_num2);
     double res;
     res = num1! + num2!;
-    return res.toString();
+    return validarDecimalEntero(res.toString());
   }
 
   double restar() {
@@ -48,8 +37,25 @@ class Calculadora {
 
 
   //validaciones
+  String validarDecimalEntero(String val){
+    double res = double.parse(val);
+    if(res % 1.0 == 0.0){
+      return res.toInt().toString();
+    }
+    return res.toString();
+  }
 
+  String validaDatosEntrada(String num_1, String num_2) {
+    double? num1 = double.tryParse(num_1);
+    double? num2 = double.tryParse(num_2);
 
-  
+    if (num1 == null || num2 == null) {
+      return "Ingresa números válidos";
+    }
+    return "";
+  }
+
+  //validar operador... +,-,* y /
+
 
 }
