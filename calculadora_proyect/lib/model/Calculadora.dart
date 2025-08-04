@@ -5,6 +5,13 @@ class Calculadora {
 
   Calculadora(this._num1, this._num2);
 
+
+  //Crear una clase que que valide los datos de entrada, y llame al clase Calculadora.
+  //utlizar POO, asociacion, agregacion o dependencia. 
+  //y verificar procimpio.
+  // diseño ua UI de la calculadora
+  // UI solo tiene que llamar ala clase validar, no tiener ninguna operacion.
+
   //metodos
   String sumar() {
     String sacarP = ".0";
